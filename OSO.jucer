@@ -31,6 +31,16 @@
         <FILE id="Sz76YH" name="stb_vorbis.c" compile="1" resource="0" file="../../Libs/Maximilian/stb_vorbis.c"/>
         <FILE id="ImZTJP" name="stb_vorbis.h" compile="0" resource="0" file="../../Libs/Maximilian/stb_vorbis.h"/>
       </GROUP>
+      <GROUP id="{85081846-21A0-B9A5-3874-07AC6756A684}" name="GUIComponents">
+        <FILE id="NQ51de" name="ClassicsGUI.h" compile="1" resource="0" file="Source/GUIComponents/ClassicsGUI.h"/>
+        <FILE id="uzOr6H" name="ExtraGUI.h" compile="1" resource="0" file="Source/GUIComponents/ExtraGUI.h"/>
+      </GROUP>
+      <FILE id="ANO35c" name="HarmonicSlider.h" compile="0" resource="0"
+            file="Source/HarmonicSlider.h"/>
+      <FILE id="wlAxQi" name="HarmonicsTable.h" compile="1" resource="0"
+            file="Source/HarmonicsTable.h"/>
+      <FILE id="IiBZRn" name="SynthSound.h" compile="0" resource="0" file="Source/SynthSound.h"/>
+      <FILE id="V9qZAl" name="SynthVoice.h" compile="0" resource="0" file="Source/SynthVoice.h"/>
       <FILE id="Rlm5tR" name="PluginProcessor.cpp" compile="1" resource="0"
             file="Source/PluginProcessor.cpp"/>
       <FILE id="kfEYZe" name="PluginProcessor.h" compile="0" resource="0"

@@ -1,5 +1,6 @@
 #include "PluginProcessor.h"
 #include "PluginEditor.h"
+#include "GUIComponents/ClassicsGUI.h"
 
 //==============================================================================
 OneOscAudioProcessorEditor::OneOscAudioProcessorEditor (OneOscAudioProcessor& p)
@@ -14,7 +15,7 @@ OneOscAudioProcessorEditor::OneOscAudioProcessorEditor (OneOscAudioProcessor& p)
     WTEffects.reset (new TabbedComponent (TabbedButtonBar::TabsAtBottom));
     addAndMakeVisible (WTEffects.get());
     WTEffects->setTabBarDepth (25);
-    WTEffects->addTab (TRANS("Classics"), Colours::lightgrey, 0, false);
+    WTEffects->addTab (TRANS("Classics"), Colours::lightgrey, new ClassicsGUI(&processor.mySynth, processor.myVoice), false);
     WTEffects->addTab (TRANS("Extra transform"), Colours::lightgrey, 0, false);
     WTEffects->setCurrentTabIndex (0);
 
@@ -41,6 +42,8 @@ OneOscAudioProcessorEditor::OneOscAudioProcessorEditor (OneOscAudioProcessor& p)
     WTRemap->setButtonText (TRANS("Remap"));
     WTRemap->addListener (this);
     WTRemap->setColour (TextButton::buttonColourId, Colour (0xff85b556));
+
+    
 
     setSize (1000, 700);
 }
@@ -102,4 +105,9 @@ void OneOscAudioProcessorEditor::buttonClicked (Button* buttonThatWasClicked)
     else if (buttonThatWasClicked == WTRemap.get()){
 
     }
+}
+
+void OneOscAudioProcessorEditor::sliderValueChanged(Slider* slider)
+{
+
 }

@@ -16,8 +16,17 @@ OneOscAudioProcessor::OneOscAudioProcessor()
 {
   mySynth.clearVoices();
 
-  for(int i = 0; i < 5; ++i)
+  for(int i = 0; i < 5; ++i){
     mySynth.addVoice(new SynthVoice());
+
+    if(myVoice = dynamic_cast<SynthVoice*>(mySynth.getVoice(i))){
+      myVoice->setAtkS(200.0f);
+      myVoice->setDecS(21.0f);
+      myVoice->setSusS(0.8f);
+      myVoice->setRelS(300.0f);
+    }
+       
+  }
 
   mySynth.clearSounds();
   mySynth.addSound(new SynthSound());

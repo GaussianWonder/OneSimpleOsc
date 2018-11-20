@@ -10,8 +10,10 @@
 
 #pragma once
 #include "../JuceLibraryCode/JuceHeader.h"
+#include <string>
 #include "SynthSound.h"
 #include "maximilian.h"
+
 
 class SynthVoice : public SynthesiserVoice
 {
@@ -27,7 +29,6 @@ public:
 	{
 		//called to start a new note
 		env1.trigger = 1;
-
 		level = velocity;
 		frequency = MidiMessage::getMidiNoteInHertz(midiNoteNumber);
 		return;
@@ -49,21 +50,15 @@ public:
 	void renderNextBlock(AudioBuffer< float > &outputBuffer, int startSample, int numSamples)
 	{
 		//Renders the next block of data for this voice
-
-		env1.setAttack(800);
-		env1.setDecay(200);
-		env1.setSustain(0.75f);
-		env1.setRelease(800);
-
 		for(int sample = 0; sample < numSamples; ++sample){
-			double sinWave = sinOsc.saw(frequency);
-			double sinSound = env1.adsr(sinWave, env1.trigger) * level;
-			double sinFilter = filter1.lores(sinSound, 200, 0.1);
+			double wave = osc1.saw(frequency);
+			double sound = env1.adsr(wave, env1.trigger) * level;
+			double soundFiltered = filter1.lores(sound, 200, 0.1);
 
 			for(int channel = 0; channel < outputBuffer.getNumChannels(); ++channel){
 
 
-				outputBuffer.addSample(channel, startSample, sinFilter);
+				outputBuffer.addSample(channel, startSample, soundFiltered);
 			}
 
 			++startSample;
@@ -91,11 +86,25 @@ public:
 	}
 	//============================================ controllerMoved()
 
+	//Setters
+	void setAtkS(float param){
+		env1.setAttack(param);
+	}
+	void setDecS(float param){
+		env1.setDecay(param);
+	}
+	void setSusS(float param){
+		env1.setSustain(param);
+	}
+	void setRelS(float param){
+		env1.setRelease(param);
+	}
+
 private:
 	double level;
 	double frequency;
 
-	maxiOsc sinOsc;
+	maxiOsc osc1;
 	maxiEnv env1;
 	maxiFilter filter1;
 };
