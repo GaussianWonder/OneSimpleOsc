@@ -177,6 +177,15 @@ void OneOscAudioProcessor::setStateInformation (const void* data, int sizeInByte
     // whose contents will have been created by the getStateInformation() call.
 }
 
+SynthVoice* OneOscAudioProcessor::getMyVoice()
+{
+  return myVoice;
+}
+Synthesiser* OneOscAudioProcessor::getMySynth()
+{
+  return &mySynth;
+}
+
 //==============================================================================
 // This creates new instances of the plugin..
 AudioProcessor* JUCE_CALLTYPE createPluginFilter()

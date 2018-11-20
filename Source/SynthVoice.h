@@ -10,7 +10,6 @@
 
 #pragma once
 #include "../JuceLibraryCode/JuceHeader.h"
-#include <string>
 #include "SynthSound.h"
 #include "maximilian.h"
 

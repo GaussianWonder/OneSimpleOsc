@@ -4,7 +4,8 @@
     ClassicsGUI.h
     Created: 20 Nov 2018 3:35:02pm
     Author:  virghi
-
+	
+	GUI for the classics tab
   ==============================================================================
 */
 
@@ -17,16 +18,6 @@ class ClassicsGUI : public Component,
                     public ComboBox::Listener,
                     public Slider::Listener
 {
-	private:
-		Synthesiser* _mySynth;
-		SynthVoice* _myVoice;
-
-	    // Label atkV, decV, susV, relV;
-	    Slider atkS, decS, susS, relS;
-	   	ComboBox waveForm;
-
-	    JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (ClassicsGUI)
-
 	public:
 	    ClassicsGUI (Synthesiser* pSynth, SynthVoice* pVoice){
 	    	_mySynth = pSynth;
@@ -93,4 +84,15 @@ class ClassicsGUI : public Component,
 
 	    	}
 	    }
+
+	    
+	private:
+		Synthesiser* _mySynth;
+		SynthVoice* _myVoice;
+
+	    // Label atkV, decV, susV, relV;
+	    Slider atkS, decS, susS, relS;
+	   	ComboBox waveForm;
+
+	    JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (ClassicsGUI)
 };

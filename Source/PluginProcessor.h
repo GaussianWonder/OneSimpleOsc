@@ -47,10 +47,13 @@ public:
     void getStateInformation (MemoryBlock& destData) override;
     void setStateInformation (const void* data, int sizeInBytes) override;
 
+    //Getters for communication between components and processor + SynthVoice
+    SynthVoice* getMyVoice();
+    Synthesiser* getMySynth();
+
+private:
     SynthVoice *myVoice;
     Synthesiser mySynth;
-private:
-    
     double lastSampleRate;
     //==============================================================================
     JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (OneOscAudioProcessor)

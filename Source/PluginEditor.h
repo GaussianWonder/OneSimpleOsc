@@ -19,17 +19,14 @@ public:
     void buttonClicked (Button* buttonThatWasClicked) override;
     void sliderValueChanged(Slider* slider) override;
 
-    OneOscAudioProcessor& processor;
 private:
-
+    OneOscAudioProcessor& processor;
     //==============================================================================
     std::unique_ptr<GroupComponent> WTGroup;
     std::unique_ptr<TabbedComponent> WTEffects;
     std::unique_ptr<TextButton> WTImport;
     std::unique_ptr<TextButton> WTSave;
     std::unique_ptr<TextButton> WTRemap;
-
-    
 
     //==============================================================================
     JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (OneOscAudioProcessorEditor)

@@ -15,7 +15,7 @@ OneOscAudioProcessorEditor::OneOscAudioProcessorEditor (OneOscAudioProcessor& p)
     WTEffects.reset (new TabbedComponent (TabbedButtonBar::TabsAtBottom));
     addAndMakeVisible (WTEffects.get());
     WTEffects->setTabBarDepth (25);
-    WTEffects->addTab (TRANS("Classics"), Colours::lightgrey, new ClassicsGUI(&processor.mySynth, processor.myVoice), false);
+    WTEffects->addTab (TRANS("Classics"), Colours::lightgrey, new ClassicsGUI(processor.getMySynth(), processor.getMyVoice()), false);
     WTEffects->addTab (TRANS("Extra transform"), Colours::lightgrey, 0, false);
     WTEffects->setCurrentTabIndex (0);
 
