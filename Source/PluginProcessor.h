@@ -1,26 +1,18 @@
-/*
-  ==============================================================================
-
-    This file was auto-generated!
-
-    It contains the basic framework code for a JUCE plugin processor.
-
-  ==============================================================================
-*/
-
 #pragma once
 
 #include "../JuceLibraryCode/JuceHeader.h"
+#include "SynthSound.h"
+#include "SynthVoice.h"
 
 //==============================================================================
 /**
 */
-class OsoAudioProcessor  : public AudioProcessor
+class OneOscAudioProcessor  : public AudioProcessor
 {
 public:
     //==============================================================================
-    OsoAudioProcessor();
-    ~OsoAudioProcessor();
+    OneOscAudioProcessor();
+    ~OneOscAudioProcessor();
 
     //==============================================================================
     void prepareToPlay (double sampleRate, int samplesPerBlock) override;
@@ -56,6 +48,10 @@ public:
     void setStateInformation (const void* data, int sizeInBytes) override;
 
 private:
+    Synthesiser mySynth;
+    SynthVoice* myVoice;
+
+    double lastSampleRate;
     //==============================================================================
-    JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (OsoAudioProcessor)
+    JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (OneOscAudioProcessor)
 };

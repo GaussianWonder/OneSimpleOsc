@@ -1,35 +1,34 @@
-/*
-  ==============================================================================
-
-    This file was auto-generated!
-
-    It contains the basic framework code for a JUCE plugin editor.
-
-  ==============================================================================
-*/
-
 #pragma once
 
 #include "../JuceLibraryCode/JuceHeader.h"
 #include "PluginProcessor.h"
 
-//==============================================================================
-/**
-*/
-class OsoAudioProcessorEditor  : public AudioProcessorEditor
+class OneOscAudioProcessorEditor  : public AudioProcessorEditor,
+                    public Button::Listener
 {
 public:
-    OsoAudioProcessorEditor (OsoAudioProcessor&);
-    ~OsoAudioProcessorEditor();
+    //==============================================================================
+    OneOscAudioProcessorEditor (OneOscAudioProcessor&);
+    ~OneOscAudioProcessorEditor();
 
     //==============================================================================
-    void paint (Graphics&) override;
+
+    void paint (Graphics& g) override;
     void resized() override;
+    void buttonClicked (Button* buttonThatWasClicked) override;
+
+
 
 private:
-    // This reference is provided as a quick way for your editor to
-    // access the processor object that created it.
-    OsoAudioProcessor& processor;
+    OneOscAudioProcessor& processor;
 
-    JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (OsoAudioProcessorEditor)
+    //==============================================================================
+    std::unique_ptr<GroupComponent> WTGroup;
+    std::unique_ptr<TabbedComponent> WTEffects;
+    std::unique_ptr<TextButton> WTImport;
+    std::unique_ptr<TextButton> WTSave;
+    std::unique_ptr<TextButton> WTRemap;
+
+    //==============================================================================
+    JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (OneOscAudioProcessorEditor)
 };
