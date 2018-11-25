@@ -6,6 +6,7 @@
 OneOscAudioProcessorEditor::OneOscAudioProcessorEditor (OneOscAudioProcessor& p)
     : AudioProcessorEditor(&p), processor(p)
 {
+    addAndMakeVisible(&oscGui);
 
     WTGroup.reset (new GroupComponent ("wtGroup",
                                        TRANS("Wavetable Oscilator")));
@@ -42,8 +43,6 @@ OneOscAudioProcessorEditor::OneOscAudioProcessorEditor (OneOscAudioProcessor& p)
     WTRemap->setButtonText (TRANS("Remap"));
     WTRemap->addListener (this);
     WTRemap->setColour (TextButton::buttonColourId, Colour (0xff85b556));
-
-    
 
     setSize (1000, 700);
 }
@@ -87,6 +86,9 @@ void OneOscAudioProcessorEditor::paint (Graphics& g)
 
 void OneOscAudioProcessorEditor::resized()
 {
+    int x = proportionOfWidth (0.036f), y = proportionOfHeight (0.0637f), width = proportionOfWidth (0.2214f), height = 200, space = proportionOfHeight (0.2903f);
+    oscGui.setBounds(x, y + space, width, height);
+
     WTGroup->setBounds (proportionOfWidth (0.009f), proportionOfHeight (0.0142f), proportionOfWidth (0.9781f), proportionOfHeight (0.4673f));
     WTEffects->setBounds (proportionOfWidth (0.009f), proportionOfHeight (0.4956f), proportionOfWidth (0.9781f), proportionOfHeight (0.4956f));
     WTImport->setBounds (proportionOfWidth (0.2767f), proportionOfHeight (0.0708f), proportionOfWidth (0.1351f), proportionOfHeight (0.0425f));

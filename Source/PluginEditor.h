@@ -2,6 +2,7 @@
 
 #include "../JuceLibraryCode/JuceHeader.h"
 #include "PluginProcessor.h"
+#include "DSPstuff/Oscilator.h"
 
 class OneOscAudioProcessorEditor  : public AudioProcessorEditor,
                                     public Button::Listener,
@@ -21,6 +22,7 @@ public:
 
 private:
     OneOscAudioProcessor& processor;
+    Oscilator oscGui;
     //==============================================================================
     std::unique_ptr<GroupComponent> WTGroup;
     std::unique_ptr<TabbedComponent> WTEffects;

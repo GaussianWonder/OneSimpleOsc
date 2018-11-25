@@ -35,6 +35,10 @@
         <FILE id="NQ51de" name="ClassicsGUI.h" compile="1" resource="0" file="Source/GUIComponents/ClassicsGUI.h"/>
         <FILE id="uzOr6H" name="ExtraGUI.h" compile="1" resource="0" file="Source/GUIComponents/ExtraGUI.h"/>
       </GROUP>
+      <GROUP id="{0ADB1104-9B14-E7EA-DDB6-BF08D1581886}" name="DSPstuff">
+        <FILE id="ZJxdkY" name="Oscilator.cpp" compile="1" resource="0" file="Source/DSPstuff/Oscilator.cpp"/>
+        <FILE id="qTrQ4v" name="Oscilator.h" compile="0" resource="0" file="Source/DSPstuff/Oscilator.h"/>
+      </GROUP>
       <FILE id="ANO35c" name="HarmonicSlider.h" compile="0" resource="0"
             file="Source/HarmonicSlider.h"/>
       <FILE id="wlAxQi" name="HarmonicsTable.h" compile="1" resource="0"

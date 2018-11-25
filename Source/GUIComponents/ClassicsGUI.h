@@ -57,14 +57,14 @@ class ClassicsGUI : public Component,
 	    }
 
 	    void resized (){
-	    	atkS.setBounds(10, 10, 20, 100);
-	    	decS.setBounds(40, 10, 20, 100);
-	    	susS.setBounds(70, 10, 20, 100);
-	    	relS.setBounds(100, 10, 20, 100);
-	    }
+	    	const int spacing = 10;
+	    	const int envSpacing = 20;
+	    	const int envLongitude = 100;
 
-	    void comboBoxChanged (ComboBox* comboBoxThatHasChanged){
-
+	    	atkS.setBounds(spacing/* *1+envSpacing*0 */,spacing, envSpacing, envLongitude);
+	    	decS.setBounds(spacing * 2 + envSpacing, 	spacing, envSpacing, envLongitude);
+	    	susS.setBounds(spacing * 3 + envSpacing * 2,spacing, envSpacing, envLongitude);
+	    	relS.setBounds(spacing * 4 + envSpacing * 3,spacing, envSpacing, envLongitude);
 	    }
 
 	    void sliderValueChanged (Slider* sliderThatWasMoved){
@@ -85,14 +85,17 @@ class ClassicsGUI : public Component,
 	    	}
 	    }
 
+	    void comboBoxChanged (ComboBox* comboBoxThatHasChanged){
+
+	    }
+
 	    
 	private:
 		Synthesiser* _mySynth;
 		SynthVoice* _myVoice;
-
+		
 	    // Label atkV, decV, susV, relV;
 	    Slider atkS, decS, susS, relS;
-	   	ComboBox waveForm;
 
 	    JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (ClassicsGUI)
 };
