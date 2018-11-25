@@ -1,35 +1,35 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<JUCERPROJECT id="gUReP2" name="OSO" projectType="audioplug" jucerVersion="5.4.1"
-              version="1.0.0" companyName="Curly Bracket" companyCopyright="Curly Bracket"
+<JUCERPROJECT id="gUReP2" name="OSO" projectType="audioplug" jucerVersion="5.3.2"
+              headerPath="/home/virghi/Documents/Libs/Maximilian" version="1.0.0"
+              companyName="Curly Bracket" companyCopyright="Curly Bracket"
               reportAppUsage="0" displaySplashScreen="0" bundleIdentifier="com.bracket.curly.oso"
               pluginCharacteristicsValue="pluginIsSynth,pluginProducesMidiOut,pluginWantsMidiIn"
-              pluginName="OSO" pluginDesc="OSO" pluginManufacturer="Curly Bracket"
-              headerPath="/home/virghi/Documents/Libs/Maximilian">
+              pluginName="OSO" pluginDesc="OSO" pluginManufacturer="Curly Bracket">
   <MAINGROUP id="MYUYwG" name="OSO">
     <GROUP id="{C48CB3DB-5BF9-8394-D6D8-D39D4C4D1CF6}" name="Source">
-      <GROUP id="{5EA415B0-6266-1226-8F21-1B008F109A85}" name="Maximilian">
-        <GROUP id="{EF1522AD-FCBB-9FDB-C0AB-B8C022494D8C}" name="libs">
-          <FILE id="s4wPgJ" name="fft.cpp" compile="1" resource="0" file="../../Libs/Maximilian/libs/fft.cpp"/>
-          <FILE id="geDk8n" name="fft.h" compile="0" resource="0" file="../../Libs/Maximilian/libs/fft.h"/>
-          <FILE id="BWRjdG" name="maxiAtoms.cpp" compile="1" resource="0" file="../../Libs/Maximilian/libs/maxiAtoms.cpp"/>
-          <FILE id="BMxdoG" name="maxiAtoms.h" compile="0" resource="0" file="../../Libs/Maximilian/libs/maxiAtoms.h"/>
-          <FILE id="pF0XYr" name="maxiBark.cpp" compile="1" resource="0" file="../../Libs/Maximilian/libs/maxiBark.cpp"/>
-          <FILE id="Sc41WQ" name="maxiBark.h" compile="0" resource="0" file="../../Libs/Maximilian/libs/maxiBark.h"/>
-          <FILE id="yCZNN9" name="maxiFFT.cpp" compile="1" resource="0" file="../../Libs/Maximilian/libs/maxiFFT.cpp"/>
-          <FILE id="fJoGNH" name="maxiFFT.h" compile="0" resource="0" file="../../Libs/Maximilian/libs/maxiFFT.h"/>
-          <FILE id="pDDNVs" name="maxiGrains.cpp" compile="1" resource="0" file="../../Libs/Maximilian/libs/maxiGrains.cpp"/>
-          <FILE id="Ur1ERD" name="maxiGrains.h" compile="0" resource="0" file="../../Libs/Maximilian/libs/maxiGrains.h"/>
-          <FILE id="KdTfLp" name="maxim.h" compile="0" resource="0" file="../../Libs/Maximilian/libs/maxim.h"/>
-          <FILE id="Wdt85m" name="maxiMFCC.cpp" compile="1" resource="0" file="../../Libs/Maximilian/libs/maxiMFCC.cpp"/>
-          <FILE id="XLHePY" name="maxiMFCC.h" compile="0" resource="0" file="../../Libs/Maximilian/libs/maxiMFCC.h"/>
-          <FILE id="GJwIl8" name="sineTable.h" compile="0" resource="0" file="../../Libs/Maximilian/libs/sineTable.h"/>
+      <GROUP id="{0CB84008-E10F-5474-A19B-05176AECD922}" name="Maximilian">
+        <GROUP id="{A18B6606-FA4D-2D13-8275-7DBC3FA3BE4E}" name="libs">
+          <FILE id="ScSSh3" name="fft.cpp" compile="1" resource="0" file="../../Libs/Maximilian/libs/fft.cpp"/>
+          <FILE id="orzX2k" name="fft.h" compile="0" resource="0" file="../../Libs/Maximilian/libs/fft.h"/>
+          <FILE id="rVWpev" name="maxiAtoms.cpp" compile="1" resource="0" file="../../Libs/Maximilian/libs/maxiAtoms.cpp"/>
+          <FILE id="QKJ6AS" name="maxiAtoms.h" compile="0" resource="0" file="../../Libs/Maximilian/libs/maxiAtoms.h"/>
+          <FILE id="SKPDeT" name="maxiBark.cpp" compile="1" resource="0" file="../../Libs/Maximilian/libs/maxiBark.cpp"/>
+          <FILE id="CnsML0" name="maxiBark.h" compile="0" resource="0" file="../../Libs/Maximilian/libs/maxiBark.h"/>
+          <FILE id="WsOfE6" name="maxiFFT.cpp" compile="1" resource="0" file="../../Libs/Maximilian/libs/maxiFFT.cpp"/>
+          <FILE id="A4xgJt" name="maxiFFT.h" compile="0" resource="0" file="../../Libs/Maximilian/libs/maxiFFT.h"/>
+          <FILE id="RI5dLH" name="maxiGrains.cpp" compile="1" resource="0" file="../../Libs/Maximilian/libs/maxiGrains.cpp"/>
+          <FILE id="cQMHo9" name="maxiGrains.h" compile="0" resource="0" file="../../Libs/Maximilian/libs/maxiGrains.h"/>
+          <FILE id="tdvO6n" name="maxim.h" compile="0" resource="0" file="../../Libs/Maximilian/libs/maxim.h"/>
+          <FILE id="SmNuCf" name="maxiMFCC.cpp" compile="1" resource="0" file="../../Libs/Maximilian/libs/maxiMFCC.cpp"/>
+          <FILE id="qGJ4OA" name="maxiMFCC.h" compile="0" resource="0" file="../../Libs/Maximilian/libs/maxiMFCC.h"/>
+          <FILE id="FoSvbI" name="sineTable.h" compile="0" resource="0" file="../../Libs/Maximilian/libs/sineTable.h"/>
         </GROUP>
-        <FILE id="zmRUsv" name="main.cpp" compile="1" resource="0" file="../../Libs/Maximilian/main.cpp"/>
-        <FILE id="prz9d0" name="maximilian.cpp" compile="1" resource="0" file="../../Libs/Maximilian/maximilian.cpp"/>
-        <FILE id="J0UXIJ" name="maximilian.h" compile="0" resource="0" file="../../Libs/Maximilian/maximilian.h"/>
-        <FILE id="IGUlX5" name="stb_vorbis.c" compile="1" resource="0" file="../../Libs/Maximilian/stb_vorbis.c"/>
-        <FILE id="tfCapc" name="stb_vorbis.h" compile="0" resource="0" file="../../Libs/Maximilian/stb_vorbis.h"/>
+        <FILE id="CiwLUJ" name="main.cpp" compile="1" resource="0" file="../../Libs/Maximilian/main.cpp"/>
+        <FILE id="vbOAXP" name="maximilian.cpp" compile="1" resource="0" file="../../Libs/Maximilian/maximilian.cpp"/>
+        <FILE id="dvptKu" name="maximilian.h" compile="0" resource="0" file="../../Libs/Maximilian/maximilian.h"/>
+        <FILE id="Sz76YH" name="stb_vorbis.c" compile="1" resource="0" file="../../Libs/Maximilian/stb_vorbis.c"/>
+        <FILE id="ImZTJP" name="stb_vorbis.h" compile="0" resource="0" file="../../Libs/Maximilian/stb_vorbis.h"/>
       </GROUP>
       <GROUP id="{85081846-21A0-B9A5-3874-07AC6756A684}" name="GUIComponents">
         <FILE id="NQ51de" name="ClassicsGUI.h" compile="1" resource="0" file="Source/GUIComponents/ClassicsGUI.h"/>

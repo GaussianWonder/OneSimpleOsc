@@ -63,7 +63,7 @@ File& File::operator= (File&& other) noexcept
     return *this;
 }
 
-JUCE_DECLARE_DEPRECATED_STATIC (const File File::nonexistent;)
+JUCE_DECLARE_DEPRECATED_STATIC (const File File::nonexistent);
 
 //==============================================================================
 static String removeEllipsis (const String& path)
@@ -256,13 +256,13 @@ bool File::setExecutePermission (bool shouldBeExecutable) const
     return setFileExecutableInternal (shouldBeExecutable);
 }
 
-bool File::deleteRecursively (bool followSymlinks) const
+bool File::deleteRecursively() const
 {
     bool worked = true;
 
-    if (isDirectory() && (followSymlinks || ! isSymbolicLink()))
+    if (isDirectory())
         for (auto& f : findChildFiles (File::findFilesAndDirectories, false))
-            worked = f.deleteRecursively (followSymlinks) && worked;
+            worked = f.deleteRecursively() && worked;
 
     return deleteFile() && worked;
 }
