@@ -35,14 +35,7 @@ Oscilator::~Oscilator()
 
 void Oscilator::paint (Graphics& g)
 {
-    // g.fillAll (getLookAndFeel().findColour (ResizableWindow::backgroundColourId));
-
-    // g.setColour (Colours::grey);
-    // g.drawRect (getLocalBounds(), 1);
-
-    // g.setColour (Colours::white);
-    // g.setFont (14.0f);
-    // g.drawText ("Oscilator", getLocalBounds(), Justification::centred, true);
+    
 }
 
 void Oscilator::comboBoxChanged(ComboBox* box)
@@ -52,7 +45,7 @@ void Oscilator::comboBoxChanged(ComboBox* box)
 
 void Oscilator::resized()
 {
-    Rectangle<int> area = getLocalBounds().reduced(40);  //shrinking a rectangle from every way 40px
+    Rectangle<int> area = getLocalBounds();     //shrinking a rectangle from every way 40px = .reduced(40)
 
-    oscMenu.setBounds(area.removeFromTop(20));
+    oscMenu.setBounds(area.removeFromTop(20));  //making it look smaller
 }

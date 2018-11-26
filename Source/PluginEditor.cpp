@@ -86,7 +86,7 @@ void OneOscAudioProcessorEditor::paint (Graphics& g)
 
 void OneOscAudioProcessorEditor::resized()
 {
-    int x = proportionOfWidth (0.036f), y = proportionOfHeight (0.0637f), width = proportionOfWidth (0.2214f), height = 200, space = proportionOfHeight (0.2903f);
+    int x = proportionOfWidth (0.2767f), y = proportionOfHeight (0.1841f), width = proportionOfWidth (0.1351f), height = proportionOfHeight (0.0425f), space = proportionOfHeight (0.0425f) + proportionOfWidth (0.009f);
     oscGui.setBounds(x, y + space, width, height);
 
     WTGroup->setBounds (proportionOfWidth (0.009f), proportionOfHeight (0.0142f), proportionOfWidth (0.9781f), proportionOfHeight (0.4673f));
