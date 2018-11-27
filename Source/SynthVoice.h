@@ -50,14 +50,13 @@ public:
 	{
 		//Renders the next block of data for this voice
 		for(int sample = 0; sample < numSamples; ++sample){
-			double wave = osc1.saw(frequency);
-			double sound = env1.adsr(wave, env1.trigger) * level;
-			double soundFiltered = filter1.lores(sound, 200, 0.1);
+			double sound = env1.adsr(setOscType(), env1.trigger) * level;
+			double soundFiltered = sound;/*filter1.lores(sound, 200, 0.1);*/
 
 			for(int channel = 0; channel < outputBuffer.getNumChannels(); ++channel){
 
 
-				outputBuffer.addSample(channel, startSample, soundFiltered);
+				outputBuffer.addSample(channel, startSample, soundFiltered * 0.3f);		// * 0.3f so it donesn`t distort randomly
 			}
 
 			++startSample;
@@ -83,27 +82,61 @@ public:
 
 		return;
 	}
-	//============================================ controllerMoved()
+	//============================================ controllerMoved()w
+	double setOscType(){
+		switch(waveType){
+			case 0:
+				return osc.sinewave(frequency);
+				break;
+			case 1:
+				return osc.saw(frequency);
+				break;
+			case 2:
+				return osc.triangle(frequency);
+				break;
+			case 3:
+				return osc.square(frequency);
+				break;
+			case 4:
+				return osc.pulse(frequency, 0.25f);
+				break;
+			case 5:
+				return osc.sawn(frequency);	//bandlimited saw will be changed
+				break;
+			default:		//if broke use the sinewave
+				return osc.sinewave(frequency);
+				break;
+		}
+		return 0.0f;
+	}
 
 	//Setters
 	void setAtkS(float param){
 		env1.setAttack(param);
 	}
+
 	void setDecS(float param){
 		env1.setDecay(param);
 	}
+
 	void setSusS(float param){
 		env1.setSustain(param);
 	}
+
 	void setRelS(float param){
 		env1.setRelease(param);
+	}
+
+	void getOscType(float* type){
+		waveType = (int)(*type);
 	}
 
 private:
 	double level;
 	double frequency;
+	unsigned short int waveType;
 
-	maxiOsc osc1;
+	maxiOsc osc;
 	maxiEnv env1;
 	maxiFilter filter1;
 };

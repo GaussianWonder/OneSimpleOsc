@@ -12,7 +12,8 @@
 #include "Oscilator.h"
 
 //==============================================================================
-Oscilator::Oscilator()
+Oscilator::Oscilator(OneOscAudioProcessor& p) :
+    processor(p), mySynth(p.getMySynth()), myVoice(p.getMyVoice())
 {
     setSize(200, 200);
 
@@ -27,6 +28,13 @@ Oscilator::Oscilator()
     oscMenu.addListener(this);
 
     oscMenu.setJustificationType(Justification::centred);
+
+    waveSelection = new AudioProcessorValueTreeState::ComboBoxAttachment(
+        processor.tree,
+        WAVE_TYPE,
+        oscMenu 
+      );
+
 }
 
 Oscilator::~Oscilator()
@@ -35,12 +43,16 @@ Oscilator::~Oscilator()
 
 void Oscilator::paint (Graphics& g)
 {
-    
+
 }
 
 void Oscilator::comboBoxChanged(ComboBox* box)
 {
-    //Implementation is not necessary
+    for(int i = 0; i < mySynth->getNumVoices(); ++i){
+      if( (myVoice = dynamic_cast<SynthVoice*>(mySynth->getVoice(i))) ){
+        myVoice->getOscType(processor.tree.getRawParameterValue(WAVE_TYPE));
+      }
+    }
 }
 
 void Oscilator::resized()

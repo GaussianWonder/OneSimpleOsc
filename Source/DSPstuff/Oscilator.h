@@ -9,7 +9,9 @@
 */
 
 #pragma once
+
 #include "../../JuceLibraryCode/JuceHeader.h"
+#include "../PluginProcessor.h"
 
 //==============================================================================
 /*
@@ -18,7 +20,7 @@ class Oscilator    : public Component,
                      public ComboBox::Listener
 {
 public:
-    Oscilator();
+    Oscilator(OneOscAudioProcessor&);
     ~Oscilator();
 
     void paint (Graphics&) override;
@@ -27,7 +29,12 @@ public:
     void comboBoxChanged(ComboBox*) override;
 
 private:
+    OneOscAudioProcessor& processor;
+    SynthVoice *myVoice;
+    Synthesiser *mySynth;
+
     ComboBox oscMenu;
 
+    ScopedPointer<AudioProcessorValueTreeState::ComboBoxAttachment> waveSelection;
     JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (Oscilator)
 };

@@ -11,7 +11,8 @@ OneOscAudioProcessor::OneOscAudioProcessor()
                       #endif
                        .withOutput ("Output", AudioChannelSet::stereo(), true)
                      #endif
-                       )
+                       ),
+     tree(*this, nullptr)
 #endif
 {
   mySynth.clearVoices();
@@ -30,6 +31,19 @@ OneOscAudioProcessor::OneOscAudioProcessor()
 
   mySynth.clearSounds();
   mySynth.addSound(new SynthSound());
+
+  // DONE INITTING THE SYNTHESISER CLASS
+
+  NormalisableRange<float> waveTypeParam (0, 5);
+  tree.createAndAddParameter(
+      WAVE_TYPE,
+      "WaveType",
+      "Wave Type",
+      waveTypeParam,
+      0,
+      nullptr,
+      nullptr
+  );
 }
 
 OneOscAudioProcessor::~OneOscAudioProcessor()

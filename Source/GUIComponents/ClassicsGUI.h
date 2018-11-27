@@ -19,9 +19,10 @@ class ClassicsGUI : public Component,
                     public Slider::Listener
 {
 	public:
-	    ClassicsGUI (Synthesiser* pSynth, SynthVoice* pVoice){
-	    	_mySynth = pSynth;
-	    	_myVoice = pVoice;
+	    ClassicsGUI (OneOscAudioProcessor* p){
+	    	processor = p;
+	    	mySynth = processor->getMySynth();
+	    	myVoice = processor->getMyVoice();
 
 	    	atkS.setSliderStyle(Slider::SliderStyle::LinearVertical);
 	    	atkS.setRange(0.1f, 5000.0f);
@@ -68,18 +69,19 @@ class ClassicsGUI : public Component,
 	    }
 
 	    void sliderValueChanged (Slider* sliderThatWasMoved){
-	    	for(int i = 0; i < _mySynth->getNumVoices(); ++i){
 
-	    		if( (_myVoice = dynamic_cast<SynthVoice*>(_mySynth->getVoice(i))) ){
+	    	for(int i = 0; i < mySynth->getNumVoices(); ++i){
+
+	    		if( (myVoice = dynamic_cast<SynthVoice*>(mySynth->getVoice(i))) ){
 	    			//Make use of SETTERS
 	    			if(sliderThatWasMoved == &atkS)
-		    			_myVoice->setAtkS(atkS.getValue());
+		    			myVoice->setAtkS(atkS.getValue());
 			    	else if(sliderThatWasMoved == &decS)
-		    			_myVoice->setDecS(decS.getValue());
+		    			myVoice->setDecS(decS.getValue());
 			    	else if(sliderThatWasMoved == &susS)
-		    			_myVoice->setSusS(susS.getValue());
+		    			myVoice->setSusS(susS.getValue());
 			    	else if(sliderThatWasMoved == &relS)
-		    			_myVoice->setRelS(relS.getValue());
+		    			myVoice->setRelS(relS.getValue());
 	    		}
 
 	    	}
@@ -91,8 +93,9 @@ class ClassicsGUI : public Component,
 
 	    
 	private:
-		Synthesiser* _mySynth;
-		SynthVoice* _myVoice;
+		OneOscAudioProcessor* processor;		//link to audio processor
+		Synthesiser* mySynth;
+		SynthVoice* myVoice;
 		
 	    // Label atkV, decV, susV, relV;
 	    Slider atkS, decS, susS, relS;

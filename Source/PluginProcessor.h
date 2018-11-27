@@ -4,6 +4,8 @@
 #include "SynthSound.h"
 #include "SynthVoice.h"
 
+#define WAVE_TYPE "wave_type"
+
 //==============================================================================
 /**
 */
@@ -51,9 +53,10 @@ public:
     SynthVoice* getMyVoice();
     Synthesiser* getMySynth();
 
+    AudioProcessorValueTreeState tree;
 private:
     SynthVoice *myVoice;
-    Synthesiser mySynth;
+    Synthesiser mySynth;    
     double lastSampleRate;
     //==============================================================================
     JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (OneOscAudioProcessor)
